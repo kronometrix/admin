@@ -54,8 +54,8 @@ http {
 
     server {
         listen 4430 ssl;
-        ssl_certificate nginx.crt;
-        ssl_certificate_key nginx.key;
+        ssl_certificate admin.crt;
+        ssl_certificate_key admin.key;
 
         index index.html;
         root ../static;
