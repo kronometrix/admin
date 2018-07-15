@@ -32,7 +32,7 @@ http {
 
     keepalive_timeout 60;
     reset_timedout_connection on;
-
+    etag off;
     gzip off;
 
     lua_package_path ";;${prefix}../app/?.lua;";
@@ -40,15 +40,6 @@ http {
     lua_shared_dict sessions 10m;
     lua_shared_dict profile 10m;
     init_by_lua_file "../app/init.lua";
-
-    server {
-        listen 8001;
-        index index.html;
-        root ../static;
-    
-        # HTTPS only
-        include ../../app/conf/unsecured/*.conf;
-    }
 
     server {
         listen 4430 ssl;
